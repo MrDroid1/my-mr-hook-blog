@@ -11,11 +11,6 @@ export interface SiteMeta {
   articleDate?: string | undefined
 }
 
-export type CardListData = {
-  title: string
-  list: CardList
-}
-
 export type CardList = {
   title: string
   link?: string

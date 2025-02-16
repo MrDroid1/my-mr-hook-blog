@@ -29,20 +29,20 @@ interface Props {
 const { page, uniqueTags, collectionsCount } = Astro.props
 
 const meta = {
-  description: 'Some posts or archieves of my blog',
-  title: 'Blog'
+  description: 'Любой пост или архивная запись моего блога',
+  title: 'Блог'
 }
 
 const paginationProps = {
   ...(page.url.prev && {
     prevUrl: {
-      text: `← Previous Posts`,
+      text: `← Предыдущие Посты`,
       url: page.url.prev
     }
   }),
   ...(page.url.next && {
     nextUrl: {
-      text: `Next Posts →`,
+      text: `Следующие Посты →`,
       url: page.url.next
     }
   })
@@ -53,21 +53,21 @@ const paginationProps = {
   <Button title='Back' href='/' style='back' />
   <main class='mt-6 lg:mt-10'>
     <div id='content-header' class='animate'>
-      <h1 class='mb-6 mt-6 text-3xl font-medium sm:mt-10'>Blog</h1>
+      <h1 class='mb-6 mt-6 text-3xl font-medium sm:mt-10'>Блог</h1>
     </div>
     {
       page.data.length === 0 ? (
-        <p>No posts yet.</p>
+        <p>Пока постов нет.</p>
       ) : (
         <div class='grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-8'>
           <section aria-label='Blog posts list' class='animate' id='content'>
             {/* header */}
             <div class='mb-3 flex flex-col justify-between text-sm sm:mb-5 sm:flex-row'>
               <span class='text-muted-foreground'>
-                Page {page.currentPage} - Showing {page.data.length} of {collectionsCount} posts
+                Страница {page.currentPage} - Показано {page.data.length} из {collectionsCount} постов
               </span>
               <a aria-label='View all blog by years' href='/archives' data-astro-prefetch>
-                View all posts by years →
+                Смотрите всё по годам →
               </a>
             </div>
             {/* posts */}
@@ -84,7 +84,7 @@ const paginationProps = {
             <aside class='animate' id='sidebar'>
               <h2 class='mb-4 flex items-center text-lg font-semibold'>
                 <Icon name='tag-2' class='me-2' />
-                Tags
+                Теги
               </h2>
               <ul class='text-bgColor flex flex-wrap gap-2'>
                 {uniqueTags.map((tag) => (
@@ -95,7 +95,7 @@ const paginationProps = {
               </ul>
               <span class='mt-4 block sm:text-end'>
                 <a aria-label='View all blog categories' href='/tags' data-astro-prefetch>
-                  View all →
+                  Смотреть все →
                 </a>
               </span>
             </aside>

@@ -1,64 +1,105 @@
 ---
-import links from 'public/links.json'
-import config from 'virtual:config'
-
-import { Comment } from 'astro-pure/advanced'
-import { Collapse, Timeline } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
-import FriendList from '@/components/links/FriendList.astro'
+import { Aside, Collapse } from 'astro-pure/user'
 
 const headings = [
-  { depth: 2, slug: 'common-links', text: 'Common Links' },
-  { depth: 2, slug: 'special-links', text: 'Special Links' },
-  { depth: 2, slug: 'apply-links', text: 'Apply Links' }
+{ depth: 2, slug: 'data-base', text: 'База знаний' },
+{ depth: 2, slug: 'my-services', text: 'Мои услуги' },
+{ depth: 2, slug: 'telegram-it-ne', text: 'Группа в ТГ для души' },
+{ depth: 2, slug: 'youtube', text: 'YouTube' },
+{ depth: 2, slug: 'telegram-hook', text: 'Telegram ютуб канала' },
+{ depth: 2, slug: 'boosty', text: 'Boosty' },
+{ depth: 2, slug: 'boosty-chats', text: 'Чаты для подписчиков Boosty' }
 ]
-
-const { friends } = links
-const linksConf = config.integ.links
 ---
 
-<PageLayout title='Links' {headings} info='/links'>
-  <p>怎么可能有顺序呢，当然是随机的~</p>
-  <h2 id='common-links'>Common Links</h2>
-  <FriendList list={friends[0]} />
-  <Collapse title='Links with Bad Status'>
-    <FriendList list={friends[1]} />
-  </Collapse>
-  <Collapse title='Link History Book'>
-    <Timeline events={linksConf.logbook} />
-  </Collapse>
-  <h2 id='special-links'>Special Links</h2>
-  <FriendList list={friends[2]} />
-
-  <!-- apply-links -->
-  <h2 id='apply-links'>Apply Links</h2>
-  <p>本站信息如下（点击快速复制）：</p>
-  <blockquote class='not-prose grid grid-cols-[auto_1fr] gap-x-2 break-words border-s-4 ps-4'>
-    {
-      linksConf.applyTip.map(({ name, val }) => {
-        const script = `navigator.clipboard.writeText('${val}');document.dispatchEvent(new CustomEvent('toast',{detail:{message:'Copied "${val}" to clipboard!'}}))`
-        return (
-          <>
-            <span class='text-end'>{name}:</span>
-            <samp class='cursor-pointer' onclick={script}>
-              {val}
-            </samp>
-          </>
-        )
-      })
-    }
-  </blockquote>
-
+<PageLayout title='Навигация' {headings} info='/links'>
+  <h2 id='data-base'>База знаний | Данный блог</h2>
   <p>
-    申请时还请按照这个模板留言（<a
-      href='https://github.com/cworld1/astro-theme-pure/blob/main/public/links.json'
-      target='_blank'>提交 PR</a
-    > 或许也是个更快的办法）。此外有关申请说明：
+    Статьи, видео, подкасты, созданные мной для вас.
+    Вы найдете ответы на все свои вопросы на странице тут: <a href="/blog">ссылка</a>.
   </p>
+
+  <h2 id='my-services'>Мои услуги</h2>
+  <Aside type="caution" title='Важно!'>
+    Я готов помочь, но у меня мало времени. Я возьму за помощь <b>ОЧЕНЬ МНОГО</b>.
+  </Aside>
   <ul>
-    <li>在你的友链上添加了本站；</li>
-    <li>请确保你的站点活着；</li>
-    <li>博客内容不违反国家法律。</li>
+    <li>Составить карьерный план</li>
+    <li>Выстроить процессы в компании</li>
+    <li>Показать как быстро создать MVP продукта за копейки</li>
+    <li>Нарисовать оптимальную архитектуру для продукта</li>
   </ul>
-  <Comment slot='bottom' />
+
+  <h2 id='telegram-it-ne'>Группа в ТГ для души</h2>
+  <p>
+    Я пишу каждую неделю мелкие посты на все темы, которые касаются ИТ, финансов и карьеры: <a href="https://t.me/it_ne_ob_it">ссылка.</a>
+  </p>
+
+  <h2 id='youtube'>YouTube</h2>
+  <p>
+    Видео для быстрых и понятных объяснений технологий, процессов, фреймворков.
+    Длинные ролики про создание стартапов и системного дизайна.
+    Ищите тут: <a href="https://www.youtube.com/@hook-s2p">ссылка.</a>
+  </p>
+
+  <h2 id='telegram-hook'>Telegram ютуб канала</h2>
+  <p>
+    В телеге анонсы, новости, необычные рассуждения на житейские темы и не только,
+    мемосы, всё находится: <a href="https://t.me/mister_hook">ссылка.</a>
+  </p>
+
+  <h2 id='boosty'>Boosty</h2>
+  <p>
+    Эксклюзивный контент, включающий базу знаний для разных уровней подписки.
+    Стримы и ответы на вопросы тут: <a href="https://boosty.to/mrhook">ссылка.</a>
+  </p>
+
+  <h2 id='boosty-chats'>Чаты для подписчиков Boosty</h2>
+  <Aside>
+    Чаты напрямую влияют на контент, который будет выходить
+  </Aside>
+  <h3>Как получить доступ</h3>
+  <ol>
+    <li>Быть подписанным. Требуется уровень подписки «Чивапчич» и выше.</li>
+    <li>Привязать свой «Телеграм» к «Бусти» <a href="https://boosty.to/app/settings/external-apps">ссылка.</a></li>
+    <li>В сообщении в «Телеге» ткнуть на «Доступные группы», и вы получите доступные чаты</li>
+  </ol>
+  <Collapse title='Перечень чатов'>
+    <h4>Чивапчич</h4>
+    <ul>
+        <li>Флудилка — Все и вся тут, мемосы и шутки, за которые мы будем гореть на кострах.</li>
+        <li>Разрабим — Пролетарии всех стран, объединяйтесь!</li>
+        <li>Ищем союзников — Сворачивать горы и зарабатывать миллиарды в соло сложно, нужны союзники. Их искать тут.</li>
+        <li>Резюмечная — Советы по составлению резюме. Ревью от коллег по цеху.</li>
+        <li>Собесы — Факапы и успехи в прохождении собеседований.</li>
+        <li>Базированый — Это база, это знать надо!</li>
+    </ul>
+
+    <h4>Чебупеля (Все, что выше, плюс)</h4>
+    <ul>
+        <li>Стартапим — Идеи проектов, поиск команды под стартап или хакатон.</li>
+        <li>Управленцы — Для управленцев и тех, кто хочет управлять массами.</li>
+    </ul>
+
+    <h4>Милорд технокругетс (Все, что выше, плюс)</h4>
+    <ul>
+        <li>Житейское — Про спорт, мир, женщин, мужчин и всех всех всех. Особая флудилка для истинных ценителей умных дискуссий.</li>
+    </ul>
+
+    <h4>Пасущий успех (Все, что выше, плюс)</h4>
+    <ul>
+        <li>Денежный заряд — Строим карьеру в корпорациях. Ставим раком работу в стартапах. Подчиняем себе компании любых масштабов.</li>
+    </ul>
+
+    <h4>Высшая материя (Все, что выше, плюс)</h4>
+    <ul>
+        <li>Высоко материальный — Практически личный чат, где постигается дзен и исчезают границы нормальности.</li>
+    </ul>
+
+    <h4>БАРио ПАБелли (Все, что выше, плюс)</h4>
+    <ul>
+        <li>Спецзаказ — Для тех, кто очень хочет выпить и пьяным орать гражданскую оборону.</li>
+    </ul>
+  </Collapse>
 </PageLayout>

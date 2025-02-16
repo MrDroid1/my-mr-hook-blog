@@ -21,10 +21,10 @@ const meta = {
 
   <main class='mt-6 lg:mt-10'>
     <div id='content-header' class='animate'>
-      <h1 class='mb-6 text-3xl font-medium'>Archives</h1>
+      <h1 class='mb-6 text-3xl font-medium'>Архивы</h1>
     </div>
 
-    {allPosts.length === 0 && <p>No posts yet.</p>}
+    {allPosts.length === 0 && <p>Пока постов нет</p>}
 
     <section id='content' class='animate' aria-label='Blog post list'>
       {
@@ -37,7 +37,7 @@ const meta = {
               <samp>{year}</samp>
             </h2>
             <p class='px-5 text-muted-foreground'>
-              {posts.length} post{posts.length > 1 && 's'}
+              Постов: {posts.length}
             </p>
             <ul class='flex flex-col text-start'>
               {posts.map((p) => (
