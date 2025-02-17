@@ -3,7 +3,7 @@ import { Image } from 'astro:assets'
 
 import { PostPreview } from 'astro-pure/components/pages'
 import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
-import { Button, Icon, Label } from 'astro-pure/user'
+import { Button, Card, Icon, Label } from 'astro-pure/user'
 import PageLayout from '@/layouts/BaseLayout.astro'
 import Section from '@/components/home/Section.astro'
 import avatar from '@/assets/avatar.png'
@@ -38,9 +38,9 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
       <Section title='Обо мне'>
         <p class='text-muted-foreground'>Руководитель разработки / Teamlead</p>
         <p class='text-muted-foreground'>
-          Я веду свой блог о разработке ПО, финансах и учу людей жизни. Тут вы найдете мои
-          статьи, видео, блоги и умные мысли. Тут также находится вся навигация по всему, что
-          я делаю в интернете.
+          Я веду свой блог о разработке ПО, финансах и учу людей жизни. Тут вы найдете мои статьи,
+          видео, блоги и умные мысли. Тут также находится вся навигация по всему, что я делаю в
+          интернете.
         </p>
         <Button title='Больше обо мне' class='w-fit self-end' href='/about' style='ahead' />
       </Section>
@@ -58,6 +58,29 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
           </Section>
         )
       }
+
+      <Section title='Проекты'>
+        <div class='grid grid-cols-3 gap-4'>
+          <Card as='a' href='https://t.me/mister_hook' heading='Mr.Hook'>
+            <p class='text-blue-300'>Telegram сообщество моего YouTube канала</p>
+          </Card>
+          <Card as='a' href='https://www.youtube.com/@hook-s2p' heading='Mr.Hook'>
+            <p class='text-red-300'>YouTube канал для бесплатных видосов</p>
+          </Card>
+          <Card as='a' href='https://vk.com/mister_hook' heading='Mr.Hook'>
+            <p class='text-green-300'>Сообщество VK, тут видосы с YouTube</p>
+          </Card>
+          <Card as='a' href='https://t.me/it_ne_ob_it' heading='IT не об IT'>
+            <p class='text-blue-300'>Telegram канал, который я веду для души</p>
+          </Card>
+          <Card as='a' href='https://boosty.to/mrhook' heading='Boosty'>
+            <p class='text-amber-300'>Бусти для эксклюзивного и платного контента</p>
+          </Card>
+          <Card as='a' href='https://dzen.ru/it_ne_ob_it' heading='IT не об IT'>
+            Меня также можно читать на Дзене
+          </Card>
+        </div>
+      </Section>
     </div>
   </main>
 </PageLayout>
