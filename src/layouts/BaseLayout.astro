@@ -1,4 +1,6 @@
 ---
+import { Analytics } from '@vercel/analytics/next'
+
 import { Footer, Header, ThemeProvider } from 'astro-pure/components/basic'
 import type { SiteMeta } from 'astro-pure/types'
 import BaseHead from '@/components/BaseHead.astro'
@@ -53,5 +55,6 @@ const {
         ) !important;
       }
     </style>
+    <Analytics />
   </body>
 </html>
