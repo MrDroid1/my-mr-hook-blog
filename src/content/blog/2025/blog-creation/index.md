@@ -2,6 +2,7 @@
 title: Как я себе блог создавал
 description: 'Рассказываю о том, как создал себе блог через боль и страдания.'
 publishDate: 2025-02-17 23:01:00
+heroImage: { src: '../../images/post.jpg', color: '#B4C6DA' }
 tags: ['статья', 'бесплатно', 'житейское']
 language: 'Русский'
 comment: false

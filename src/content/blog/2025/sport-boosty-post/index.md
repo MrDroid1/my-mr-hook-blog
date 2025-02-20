@@ -2,6 +2,7 @@
 title: Спорт
 description: 'Статья для бусти о важности спорта.'
 publishDate: 2025-01-03 10:01:00
+heroImage: { src: '../../images/post.jpg', color: '#B4C6DA' }
 tags: ['высшая материя', 'спорт']
 language: 'Русский'
 comment: false
